@@ -1,24 +1,26 @@
-<div class="row align-items-center">
-    <div class="login-card">
-        <form class="form login-form">
-             <div class="form-group">
-                <label for="name-login">Name:</label>
-                <input class="form-input" type="name" id="name-login" />
+            <div class="d-flex h-100 justify-content-center align-items-center h-100 mt-5 login-glass">
+                <div class="d-flex container justify-content-center align-items-center login-card">
+                    <form class="form login-form mt-3">
+                        <h1>If you say it enough,</h1>
+                        <h1 class="pb-2">it stops sounding like a foreign language.</h1>
+                         <div class="d-flex form-group justify-content-center">
+                            <label for="name-login"></label>
+                            <input class="form-input" type="name" id="name-login" placeholder="name" />
+                        </div>
+                        <div class="d-flex form-group justify-content-center">
+                            <label for="email-login"></label>
+                            <input class="form-input" type="text" id="email-login" placeholder="email" />
+                        </div>
+                        <div class="d-flex form-group justify-content-center">
+                            <label for="password-login"></label>
+                            <input class="form-input" type="password" id="password-login" placeholder="password" />
+                        </div>
+                        <div class="d-flex form-group justify-content-between">
+                            <a class="btn btn-light col-5 ml-2" href="/login" role="button">login</a>
+                            <a class="btn btn-light col-5 mr-2" href="/signup" role="button">signup</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email-login">Email:</label>
-                <input class="form-input" type="text" id="email-login" />
-            </div>
-            <div class="form-group">
-                <label for="password-login">Password:</label>
-                <input class="form-input" type="password" id="password-login" />
-            </div>
-            <div class="form-group">
-                <a href="/login">Login</a>
-                <a href="/signup">Signup</a>
-            </div>
-        </form>
-    </div>
-</div>
 
 {{!-- <script src=".//login.js"></script> --}}

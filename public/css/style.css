@@ -1,3 +1,57 @@
+:root {
+   display: flex;
+   min-height: 100%;
+   align-items: center;
+   justify-content: space-around;
+}
+
 h1 {
-   text-align: center;     
+   text-align: center; 
+   font-family: 'Pacifico';font-size: 22px;
+   font-size: 20px;
+   max-width: 100%; 
+   color: white;
+}
+body {
+   height: 100%;
+   min-height: 100%;
+   min-width: 50%;
+   background-image: url(egaugnal-bg.png), url(egaugnal-bg-2.jpg);
+   background-color: #000000;
+   background-position-x: center;
+   background-position-y: top;
+   background-repeat: no-repeat, no-repeat;
+   background-size: contain, cover;
+   align-items: center;
+   justify-content: center;
+}
+
+.login-glass {
+   background: rgba(28, 28, 28, 0.2);
+   border-radius: 16px;
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+   backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px);
+   border: 2px solid rgb(255, 255, 255);
+   max-width: fit-content;
+}
+
+input {
+   color: white;
+   background-color: #1d21241c;
+   border-radius: 25px;
+   text-align: center;
+}
+
+.btn-light {
+   border-radius: 25px;
+   border: 2px solid rgb(255, 255, 255);}
+
+.btn-light:hover {
+   color: white;
+   background-color: #1d21241c;
+   border: 2px solid rgb(255, 255, 255);
+}
+.card-box {
+   min-width: 300px;
 }
