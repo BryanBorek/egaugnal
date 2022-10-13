@@ -1,17 +1,39 @@
-:root {
+/* :root {
    display: flex;
    min-height: 100%;
    align-items: center;
    justify-content: space-around;
-}
+} */
 
 h1 {
    text-align: center; 
-   font-family: 'Pacifico';font-size: 22px;
+   font-family: 'Pacifico';
+   font-size: 10vw;
+   max-width: 100%; 
+   color: rgb(36, 21, 11);
+   text-shadow:
+       1px 1px 0 white,
+     -1px -1px 0 white,  
+      1px -1px 0 white,
+      -1px 1px 0 white,
+       1px 1px 0 white;
+}
+
+h2 {
+   text-align: center;
    font-size: 20px;
    max-width: 100%; 
    color: white;
 }
+
+h3 {
+   text-align: center; 
+   font-family: 'Pacifico';
+   font-size: 20px;
+   max-width: 100%; 
+   color: white;
+}
+
 body {
    height: 100%;
    min-height: 100%;
@@ -21,13 +43,13 @@ body {
    background-position-x: center;
    background-position-y: top;
    background-repeat: no-repeat, no-repeat;
-   background-size: contain, cover;
+   background-size: 100vw, cover;
    align-items: center;
    justify-content: center;
 }
 
 .login-glass {
-   background: rgba(28, 28, 28, 0.2);
+   background: rgba(28, 28, 28, 0.5);
    border-radius: 16px;
    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
    backdrop-filter: blur(6px);
@@ -41,17 +63,41 @@ input {
    background-color: #1d21241c;
    border-radius: 25px;
    text-align: center;
+   -webkit-text-fill-color: rgba(255, 255, 255, 0.85);
+   line-height: 2rem;
 }
 
 .btn-light {
-   border-radius: 25px;
-   border: 2px solid rgb(255, 255, 255);}
-
-.btn-light:hover {
    color: white;
    background-color: #1d21241c;
+   border: 2px solid rgb(255, 255, 255);
+   border-radius: 25px;
+}
+
+.login-btn-l {
+   border-radius: 25px 0px 0px 25px;
+   border-right: 1px solid rgb(255, 255, 255);
+}
+
+.login-btn-r {
+   border-radius: 0px 25px 25px 0px;
+   border-left: 1px solid rgb(255, 255, 255);
+}
+
+.btn-light:hover {
+   color: #1d2124b2;
+   background-color: white;
    border: 2px solid rgb(255, 255, 255);
 }
 .card-box {
    min-width: 300px;
 }
+
+@media screen and (max-width: 650px) {
+   body {
+      background-size: 100vw, 66vh;
+   }
+   h2 {
+      font-size: 14pt;
+   }
+ }
