@@ -1,25 +1,26 @@
-<div class="row align-items-center">
-    <div class="login-card">
-        <form class="form login-form">
-             <div class="form-group">
-                <label for="name-login">Name:</label>
-                <input class="form-input" type="name" id="name-login" />
+<div class="d-flex h-100 justify-content-center align-items-center h-100 mt-5 login-glass">
+    <div class="d-flex container justify-content-center align-items-center login-card">
+        <form class="form login-form mt-3">
+            <h1>If you say it enough,</h1>
+            <h1 class="pb-2">it stops sounding like a foreign language.</h1>
+            <div class="d-flex form-group justify-content-center">
+                <label for="name-login"></label>
+                <input class="form-input" type="name" id="name-login" placeholder="name" />
             </div>
-            <div class="form-group">
-                <label for="email-login">Email:</label>
-                <input class="form-input" type="text" id="email-login" />
+            <div class="d-flex form-group justify-content-center">
+                <label for="email-login"></label>
+                <input class="form-input" type="text" id="email-login" placeholder="email" />
             </div>
-            <div class="form-group">
-                <label for="password-login">Password:</label>
-                <input class="form-input" type="password" id="password-login" />
+            <div class="d-flex form-group justify-content-center">
+                <label for="password-login"></label>
+                <input class="form-input" type="password" id="password-login" placeholder="password" />
             </div>
-            <div class="form-group">
-                <button id="loginBtn" type="submit">Login</button>
-                <button id="signupBtn" type="submit">Signup</button>
+            <div class="d-flex form-group justify-content-between">
+                <button id="loginBtn" class="btn btn-light col-5 ml-2" role="button">Login</button>
+                <button id="signupBtn" class="btn btn-light col-5 mr-2" role="button">Signup</button>
             </div>
         </form>
     </div>
 </div>
 
 <script src="/js/login.js"></script>
-{{!-- <script src="/js/signup.js"></script> --}}

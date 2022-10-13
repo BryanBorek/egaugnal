@@ -8,18 +8,21 @@ router.get("/", async (req, res) => {
   })
 });
 
-router.get("/login", async (req, res) => {
-  res.render("startpage", {
-    loggedIn: req.session.loggedIn,
-  })
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/startpage");
+    return;
+  }
+
+  res.render("login");
 });
 
-router.get("/signup", async (req, res) => {
-  res.render("startpage")
-});
+// router.get("/signup", async (req, res) => {
+//   res.render("startpage")
+// });
 
-router.get("/dashboard", withAuth, async (req, res) => {
-  res.render("dashboard");
+router.get("/startpage", withAuth, async (req, res) => {
+  res.render("startpage");
 });
 
 router.get("/logout", async (req, res) => {
