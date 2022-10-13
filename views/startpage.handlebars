@@ -1,9 +1,11 @@
 <aside>
     <div>
-    <button class="btn btn-primary" type="submit">Logout</button>
+    <button class="btn btn-primary" type="submit">High Scores</button>
     </div>
     <div>
-    <button class="btn btn-primary" type="submit">High Scores</button>
+    {{#if loggedIn}}
+    <button id="logout" class="btn btn-primary">Logout</button>
+    {{/if}}
     </div>
     <h3>Favourites</h3>
 </aside>
@@ -24,3 +26,5 @@
 
     </div>
 </div>
+
+<script src="/js/logout.js"></script>
