@@ -9,7 +9,7 @@
         "name": "French"
     },
     {
-        "name": "Chinese"
+        "name": "Chinese (Simplified)"
     },
     {
         "name": "Russian"
@@ -28,5 +28,8 @@
     },
     {
         "name": "Hindi"
+    },
+    {
+        "name": "Hungarian"
     }
 ]
