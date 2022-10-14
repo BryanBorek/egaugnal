@@ -14,12 +14,10 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("startpage");
 });
 
-// router.get("/signup", async (req, res) => {
-//   res.render("startpage")
-// });
+
 
 router.get("/startpage", withAuth, async (req, res) => {
   res.render("startpage");
