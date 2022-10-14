@@ -20,7 +20,17 @@ router.get("/login", (req, res) => {
 
 
 router.get("/startpage", withAuth, async (req, res) => {
-  res.render("startpage");
+  const language = await Language.findAll(
+    { raw: true,}
+  )
+  res.render("startpage", {
+    language,
+    selectedLanguage: language.name,
+  });
+});
+
+router.get("/learningpage", async (req, res) => {
+  res.render("learningpage")
 });
 
 router.get("/logout", async (req, res) => {
