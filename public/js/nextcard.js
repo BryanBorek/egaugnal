@@ -1,6 +1,22 @@
+// const translate = require("@vitalets/google-translate-api")
+
+// async function translate('kutya', {from: 'hu', to: 'en'}).then(res => {
+//     console.log(res.text);
+//     //=> I speak English
+//     console.log(res.from.language.iso);
+//     //=> nl
+// }).catch(err => {
+//     console.error(err);
+// });
+
+// const flipBtn = document.querySelector("#nextBtn2");
+
+flipBtn.addEventListener("click", nextCardHandler)
+
+const targetLanguage = localStorage.getItem("target")
+
 async function nextCardHandler(e) {
     e.preventDefault();
-    console.log("clickclikcljdkshfkjdshafkadskj")
     const id = window.location.toString().split("/")[
         window.location.toString().split("/").length - 1
     ];
@@ -17,7 +33,6 @@ async function nextCardHandler(e) {
     });
     if (response.ok) {
         document.location.replace(`/learningcard/${nextID}`);
-        // document.location.reload()
     }
     console.log(id)
 };

@@ -14,16 +14,15 @@
 </aside>
 
 <div class="h-100 mt-5">
-
-    <h4>
-        {{displayLanguage.name}}
-    </h4>
+    <p id="targetLanguage" style="display: none;">{{displayLanguage.name}}</p>
     <br>
     <p style="color: white;">{{dispalyWord.word_name}}</p>
     <br>
     <p style="color: white;">image goes here</p>
     <br>
-    <p style="color: white;">'back' speaker 'flip' goes here</p>
+    <p style="color: white;">'back' speaker goes here</p>
+    <br>
+    <button id="flipBtn" class="btn btn-light mt-2 mb-2">flip</button>
     <br>
     <textarea name="uesr_guess" id="guess" cols="30" rows="1" placeholder="Your guess"></textarea>
     <br>

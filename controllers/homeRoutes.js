@@ -54,10 +54,6 @@ router.get("/logout", async (req, res) => {
 });
 
 router.get("/learningcard/:id", async (req, res) => {
- 
-  // const displayLanguage = await Language.findByPk( {
-  //   raw: true,
-  // });
 
   const dispalyWord = await Word.findByPk(req.params.id, {
     raw: true,
@@ -65,7 +61,6 @@ router.get("/learningcard/:id", async (req, res) => {
   })
   console.log(dispalyWord)
   res.render("learningcard", {
-    // displayLanguage,
     dispalyWord,
     
   })
