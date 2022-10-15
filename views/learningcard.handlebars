@@ -1,0 +1,33 @@
+<aside class="login-glass">
+    <h3 class="mt-4">Egaugnal</h3>
+    <div>
+        <a href="/startpage">
+            <button class="btn btn-light mt-2 mb-2">Home</button>
+        </a>
+    </div>
+    <div class="col">
+        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+    </div>
+    <div>
+        <button class="btn btn-light mt-2 mb-2" type="submit">High Scores</button>
+    </div>
+</aside>
+
+<div class="h-100 mt-5">
+<p id="targetLanguage" >{{displayLanguage.name}}</p>
+    <p style="color: white;">{{dispalyWord.word_name}}</p>
+    <br>
+    <p style="color: blue;">image goes here</p>
+    <br>
+    <p style="color: green;">'back' speaker 'flip' goes here</p>
+    <br>
+    <textarea name="uesr_guess" id="guess" cols="30" rows="1" placeholder="Your guess"></textarea>
+    <br>
+    <button id="guessBtn" class="btn btn-light mt-2 mb-2">Submit guess</button>
+    <br>
+    <button id="nextBtn2" class="btn btn-light mt-2 mb-2">Next Card</button>
+</div>
+
+
+<script src="/js/nextcard.js"></script>
+<script src="/js/logout.js"></script>
