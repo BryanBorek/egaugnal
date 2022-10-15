@@ -4,22 +4,23 @@
         <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
     </div>
     <div>
-        <button class="btn btn-primary" type="submit">High Scores</button>
+        <button class="bbtn btn-light mt-2 mb-2" type="submit">High Scores</button>
     </div>
 </aside>
 <div class="h-100 mt-5">
-    <div class="login-card">
-        <div class="form-group">
-            {{#each language}}
-            <a id="foreign_language" href="/learningpage" for="language-1" style="color: white;">{{this.name}}</a>
-            <img src="" alt="">
-            <label for="language-1">native form</label>
-            {{/each}}
+    <div class="login-card ">
+        {{#each language}}
+        <div class="form-group position-relative">
+            <div class="form-group position-static">
+                <a id="foreign_language" class="stretched-link" href="/learningpage/{{id}}" for="language-1"
+                    style="color: white;">{{this.name}}</a>
+                <img src="" alt="">
+
+                <label for="language-1">native form of {{this.name}}</label>
+            </div>
         </div>
-
-
+        {{/each}}
     </div>
 </div>
 
 <script src="/js/logout.js"></script>
-{{!-- <script src="/js/select.js"></script> --}}
