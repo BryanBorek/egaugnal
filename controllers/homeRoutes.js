@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Language, Word } = require("../models")
-const selectedLanguage = "";
+let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
 
@@ -44,20 +44,27 @@ router.get("/learningpage/:id", async (req, res) => {
       id: 1,
     }
   })
+
+  selectedLanguage = displayLanguage;
+
   //Transforms the english word to the desired language
-  const engToLan = await translate(dispalyWord.word_name, {to: displayLanguage.name});
+  const transformWord = await translate(dispalyWord.word_name, {to: displayLanguage.name});
+  const foreignWord = transformWord.text;
   //Use the desired language to pronounce the converted word
-  const audioBase64 = await googleTTS.getAudioBase64(engToLan.text, {
+  const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
     lang: displayLanguage.short, 
     slow: false, 
     host: 'https://translate.google.com', 
     timeout: 10000,
 })
+  //Create the audio
   const audioSource = `data:audio/wav;base64,${audioBase64}`;
+
   res.render("learningpage", {
     displayLanguage,
     dispalyWord,
-    audioSource
+    audioSource,
+    foreignWord
     
   })
 });
@@ -72,9 +79,26 @@ router.get("/learningcard/:id", async (req, res) => {
     raw: true,
   
   })
-  console.log(dispalyWord)
+
+  const wordData = await Word.findAll({raw: true});
+
+    //Transforms the english word to the desired language
+    const transformWord = await translate(dispalyWord.word_name, {to: selectedLanguage.name});
+    const foreignWord = transformWord.text;
+    //Use the desired language to pronounce the converted word
+    const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
+      lang: selectedLanguage.short, 
+      slow: false, 
+      host: 'https://translate.google.com', 
+      timeout: 10000,
+  })
+    //Create the audio
+    const audioSource = `data:audio/wav;base64,${audioBase64}`;
+  
   res.render("learningcard", {
     dispalyWord,
+    selectedLanguage,
+    audioSource
     
   })
 });
