@@ -1,19 +1,19 @@
 [
     {
         "name": "Spanish",
-        "short": "sp"
+        "short": "es"
     },
     {
         "name": "Japanese",
-        "short": "jp"
+        "short": "ja"
     },
     {
         "name": "French",
         "short": "fr"
     },
     {
-        "name": "Chinese",
-        "short": "ch"
+        "name": "Chinese (Simplified)",
+        "short": "zh-CN"
     },
     {
         "name": "Russian",
@@ -29,11 +29,11 @@
     },
     {
         "name": "German",
-        "short": "gr"
+        "short": "de"
     },
     {
-        "name": "Portugese",
-        "short": "pr"
+        "name": "Portuguese",
+        "short": "pt"
     },
     {
         "name": "Hungarian",

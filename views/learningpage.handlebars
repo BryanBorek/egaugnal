@@ -20,7 +20,8 @@
     <br>
     <p style="color: white;">image goes here</p>
     <br>
-    <p style="color: white;">'back' speaker goes here</p>
+    <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
+    <button onclick="document.getElementById('play-sound').play()">Sound 🔊</button>
     <br>
     <button id="flipBtn" class="btn btn-light mt-2 mb-2">flip</button>
     <br>
