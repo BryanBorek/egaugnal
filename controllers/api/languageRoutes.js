@@ -3,6 +3,7 @@ const withAuth = require("../../utils/auth");
 const {Language} = require("../../models");
 
 //ROUTE: api/languages/
+//Add a new language to the db
 router.post('/', withAuth, async (req, res) => {
     try{
         const languageData = await Language.create(req.body);

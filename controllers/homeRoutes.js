@@ -2,6 +2,8 @@ const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Language, Word } = require("../models")
 const selectedLanguage = "";
+const googleTTS = require('google-tts-api');
+const translate = require('@vitalets/google-translate-api');
 
 router.get("/", async (req, res) => {
   res.render("homepage", {
@@ -42,9 +44,20 @@ router.get("/learningpage/:id", async (req, res) => {
       id: 1,
     }
   })
+  //Transforms the english word to the desired language
+  const engToLan = await translate(dispalyWord.word_name, {to: displayLanguage.name});
+  //Use the desired language to pronounce the converted word
+  const audioBase64 = await googleTTS.getAudioBase64(engToLan.text, {
+    lang: displayLanguage.short, 
+    slow: false, 
+    host: 'https://translate.google.com', 
+    timeout: 10000,
+})
+  const audioSource = `data:audio/wav;base64,${audioBase64}`;
   res.render("learningpage", {
     displayLanguage,
     dispalyWord,
+    audioSource
     
   })
 });
