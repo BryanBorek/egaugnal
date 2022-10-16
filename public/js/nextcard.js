@@ -1,19 +1,24 @@
-// const translate = require("@vitalets/google-translate-api")
+const translate = require("@vitalets/google-translate-api")
 
-// async function translate('kutya', {from: 'hu', to: 'en'}).then(res => {
-//     console.log(res.text);
-//     //=> I speak English
-//     console.log(res.from.language.iso);
-//     //=> nl
-// }).catch(err => {
-//     console.error(err);
-// });
+const translatefunction = () => {
+    translate("kutya", {from: "targetLanguage", to: "en"}).then(res => {
+        console.log(res.text);
+        //=> I speak English
+        console.log(res.from.language.iso);
+        //=> nl
+    }).catch(err => {
+        console.error(err);
+    });
+
+};
+
+const 
+const targetLanguage = localStorage.getItem("target")
 
 // const flipBtn = document.querySelector("#nextBtn2");
 
-flipBtn.addEventListener("click", nextCardHandler)
+// flipBtn.addEventListener("click", nextCardHandler)
 
-const targetLanguage = localStorage.getItem("target")
 
 async function nextCardHandler(e) {
     e.preventDefault();
@@ -28,7 +33,7 @@ async function nextCardHandler(e) {
         method: "GET",
      
         headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
     });
     if (response.ok) {
