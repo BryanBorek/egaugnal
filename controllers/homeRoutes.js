@@ -5,6 +5,8 @@ let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
 
+let chosenLanguage = "";
+
 router.get("/", async (req, res) => {
   res.render("homepage", {
     loggedIn: req.session.loggedIn,
