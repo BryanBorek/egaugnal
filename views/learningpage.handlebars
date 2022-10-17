@@ -13,12 +13,12 @@
     </div>
 </aside>
 
+
 <div class="h-100 mt-5">
-    <p id="targetLanguage" style="display: none;">{{displayLanguage.name}}</p>
     <br>
-    <p style="color: white;">{{dispalyWord.word_name}}</p>
+    <p class="btn btn-light mt-2 mb-2" style="color: white;">{{transformWord.text}}</p>
     <br>
-    <p style="color: white;">image goes here</p>
+    <img src="{{displayWord.img}}" style="width: 250px" alt="{{displayWord.word_name}}">
     <br>
     <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
     <button onclick="document.getElementById('play-sound').play()">Sound 🔊</button>
@@ -29,10 +29,12 @@
     <br>
     <button id="guessBtn" class="btn btn-light mt-2 mb-2">Submit guess</button>
     <br>
-    <a href="/learningcard/{{dispalyWord.id}}">next card</a>
-    <button class="btn btn-light mt-2 mb-2">Next Card</button>
+
+    {{#if nextBtnURL}}
+    <a class="btn btn-light mt-2 mb-2" href="{{nextBtnURL}}">Next Word</a>
+    {{/if}}
 </div>
 
 
-<script src="/js/firstcard.js"></script>
+
 <script src="/js/logout.js"></script>

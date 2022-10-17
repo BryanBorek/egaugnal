@@ -1,4 +1,4 @@
-async function nextCardHandler(e) {
+async function firstCardHandler(e) {
     e.preventDefault();
     const language = document.querySelector("#targetLanguage").textContent;
  
@@ -7,20 +7,21 @@ async function nextCardHandler(e) {
     const id = window.location.toString().split("/")[
         window.location.toString().split("/").length - 1
     ];
-    
-    const response = await fetch(`/learningcard/${id}`, {
+
+    const response = await fetch(`/learningpage/2`, {
         method: "GET",
-     
         headers: {
             'Content-Type': 'application/json',
           },
     });
-    
+    // console.log(langID)
     if (response.ok) {
-        document.location.replace(`/learningcard/2`);
+        document.location.replace("/learningpage/2");
     }
 };
 
 const nextBtn = document.querySelector("#nextBtn");
 
-nextBtn.addEventListener("click", nextCardHandler)
+nextBtn.addEventListener("click", firstCardHandler)
+
+
