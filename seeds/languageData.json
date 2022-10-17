@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Spanish",
+        "short": "es"
+    },
+    {
+        "name": "Japanese",
+        "short": "ja"
+    },
+    {
+        "name": "French",
+        "short": "fr"
+    },
+    {
+        "name": "Chinese (Simplified)",
+        "short": "zh-CN"
+    },
+    {
+        "name": "Russian",
+        "short": "ru"
+    },
+    {
+        "name": "Italian",
+        "short": "it"
+    },
+    {
+        "name": "Korean",
+        "short": "ko"
+    },
+    {
+        "name": "German",
+        "short": "de"
+    },
+    {
+        "name": "Portuguese",
+        "short": "pt"
+    },
+    {
+        "name": "Hungarian",
+        "short": "hu"
+    }
+]

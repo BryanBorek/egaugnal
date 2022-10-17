@@ -1,0 +1,26 @@
+<aside class="login-glass">
+    <h3 class="mt-4">Egaugnal</h3>
+    <div class="col">
+        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+    </div>
+    <div>
+        <button class="bbtn btn-light mt-2 mb-2" type="submit">High Scores</button>
+    </div>
+</aside>
+<div class="h-100 m-5 login-glass">
+    <div class="login-card ">
+        {{#each language}}
+        <div class="form-group position-relative">
+            <div class="form-group position-static">
+                <a id="foreign_language" class="stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
+                    style="color: white;">{{this.name}}</a>
+                <img src="" alt="">
+
+                <label for="language-1">native form of {{this.name}}</label>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="/js/logout.js"></script>
