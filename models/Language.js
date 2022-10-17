@@ -14,7 +14,11 @@ Language.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        short: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     {
         sequelize,

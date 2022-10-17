@@ -14,7 +14,7 @@ Word.init(
         word_name: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
     },
     {
         sequelize,

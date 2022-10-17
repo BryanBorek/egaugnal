@@ -1,0 +1,39 @@
+<aside class="login-glass">
+    <h3 class="mt-4">Egaugnal</h3>
+    <div>
+        <a href="/startpage">
+            <button class="btn btn-light mt-2 mb-2">Home</button>
+        </a>
+    </div>
+    <div class="col">
+        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+    </div>
+    <div>
+        <button class="btn btn-light mt-2 mb-2" type="submit">High Scores</button>
+    </div>
+</aside>
+
+<div class="h-100 m-3 p-2 card-box login-glass">
+    <p id="targetLanguage">{{selectedLanguage.name}}</p>
+    <h2>{{dispalyWord.word_name}}</h2>
+    <br>
+    <p style="color: blue;">image goes here</p>
+    <div class="image-container">
+    <img src={{displayWord.img}} alt="">
+    </div>
+
+    <input class="form-input col-12 mx-0" name="user_guess" id="guess" cols="30" rows="1"
+        placeholder="Your guess"></input>
+    <section class="card-btns m-0 p-0">
+        <div class="mx-0 p-0">
+            <button id="guessBtn" class="btn btn-light mx-0 mt-2 mb-2 btn-l">guess</button>
+            <button id="nextBtn2" class="btn btn-light mx-0 mt-2 mb-2 btn-r">next</button>
+            <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
+            <button class="col-1 btn btn-light mx-0 mt-2 mb-2 btn-c" onclick=document.getElementById('play-sound').play()>🔊</button>
+        </div>
+    </section>
+</div>
+
+
+<script src="/js/nextcard.js"></script>
+<script src="/js/logout.js"></script>

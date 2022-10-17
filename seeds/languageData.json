@@ -1,32 +1,42 @@
 [
     {
-        "name": "Spanish"
+        "name": "Spanish",
+        "short": "es"
     },
     {
-        "name": "Japanese"
+        "name": "Japanese",
+        "short": "ja"
     },
     {
-        "name": "French"
+        "name": "French",
+        "short": "fr"
     },
     {
-        "name": "Chinese"
+        "name": "Chinese (Simplified)",
+        "short": "zh-CN"
     },
     {
-        "name": "Russian"
+        "name": "Russian",
+        "short": "ru"
     },
     {
-        "name": "Italian"
+        "name": "Italian",
+        "short": "it"
     },
     {
-        "name": "Korean"
+        "name": "Korean",
+        "short": "ko"
     },
     {
-        "name": "German"
+        "name": "German",
+        "short": "de"
     },
     {
-        "name": "Portugese"
+        "name": "Portuguese",
+        "short": "pt"
     },
     {
-        "name": "Hindi"
+        "name": "Hungarian",
+        "short": "hu"
     }
 ]
