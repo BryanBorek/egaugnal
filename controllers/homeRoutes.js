@@ -32,6 +32,11 @@ router.get("/startpage", withAuth, async (req, res) => {
   });
 });
 
+
+router.get("/languageform", withAuth, async(req, res) => {
+  res.render("languageform");
+})
+
 router.get("/learningpage/:id", async (req, res) => {
  
   const displayLanguage = await Language.findByPk(req.params.id, {
