@@ -82,7 +82,7 @@ input {
 
 .btn-c {
    position: absolute;
-   top: 80%;
+   top: 85.5%;
    right: 40%;
    border-radius: 25px;
    width: 50px;
@@ -110,16 +110,16 @@ input {
    display: inline;
 }
 
-img {
+/* img {
    size: inherit;
-}
+} */
 
-.image-conatiner {
-   background-color: #000000;
+.image-container {
    width: 249px;
    height: 249px;
    min-height: 249px;
    min-width: 249px;
+   object-fit: cover;
 }
 
 @media screen and (max-width: 650px) {

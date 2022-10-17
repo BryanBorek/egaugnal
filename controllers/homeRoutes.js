@@ -77,8 +77,8 @@ router.get("/learningcard/:id", async (req, res) => {
 
   const dispalyWord = await Word.findByPk(req.params.id, {
     raw: true,
+  
   })
-  console.log(dispalyWord)
 
   const wordData = await Word.findAll({raw: true});
 

@@ -13,26 +13,26 @@
     </div>
 </aside>
 
-<div class="h-100 m-3 p-2 card-box login-glass">
-    <p id="targetLanguage">{{selectedLanguage.name}}</p>
-    <h2>{{dispalyWord.word_name}}</h2>
-    <br>
-    <p style="color: blue;">image goes here</p>
-    <div class="image-container">
-    <img src={{displayWord.img}} alt="">
+<div class="h-100 m-2 card-box login-glass">
+    <p id="targetLanguage">{{name}}</p>
+    <h2 lang="sp">{{dispalyWord.word_name}}</h2>
+    <div>
+    <img class="image-container" src="{{dispalyWord.img}}" alt="">
     </div>
-
+    <div class="m-3">
     <input class="form-input col-12 mx-0" name="user_guess" id="guess" cols="30" rows="1"
         placeholder="Your guess"></input>
-    <section class="card-btns m-0 p-0">
-        <div class="mx-0 p-0">
-            <button id="guessBtn" class="btn btn-light mx-0 mt-2 mb-2 btn-l">guess</button>
-            <button id="nextBtn2" class="btn btn-light mx-0 mt-2 mb-2 btn-r">next</button>
+    <section class="card-btns">
+        <div class="mt-3">
+            <button id="guessBtn" class="btn btn-light btn-l">guess</button>
             <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
-            <button class="col-1 btn btn-light mx-0 mt-2 mb-2 btn-c" onclick=document.getElementById('play-sound').play()>🔊</button>
+            <a id="nextBtn2" class="btn btn-light btn-r" href="/learningcard/{{next_card dispalyWord.id}}">next</a>
+            <button class="col-1 btn btn-light btn-c" onclick="document.getElementById('play-sound').play()">🔊</button>
         </div>
     </section>
+    </div>
 </div>
+
 
 
 <script src="/js/nextcard.js"></script>

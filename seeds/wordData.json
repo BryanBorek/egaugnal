@@ -1,26 +1,34 @@
 [
     {
-        "word_name": "Duck"
+        "word_name": "Duck",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Chicken"
+        "word_name": "Chicken",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Frog"
+        "word_name": "Frog",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Cow"
+        "word_name": "Cow",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Dog"
+        "word_name": "Dog",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Cat"
+        "word_name": "Cat",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Sheep"
+        "word_name": "Sheep",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     },
     {
-        "word_name": "Horse"
+        "word_name": "Horse",
+        "img": "/pexels-rachel-vine-1427079.jpg"
     }
 ]
