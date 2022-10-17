@@ -38,7 +38,7 @@ body {
    height: 100%;
    min-height: 100%;
    min-width: 50%;
-   background-image: url(egaugnal-bg.png), url(egaugnal-bg-2.jpg);
+   background-image: url(../egaugnal-bg.png), url(../egaugnal-bg-2.jpg);
    background-color: #000000;
    background-position-x: center;
    background-position-y: top;
@@ -74,12 +74,25 @@ input {
    border-radius: 25px;
 }
 
-.login-btn-l {
+.btn-l {
+   width: 49%;
    border-radius: 25px 0px 0px 25px;
    border-right: 1px solid rgb(255, 255, 255);
 }
 
-.login-btn-r {
+.btn-c {
+   position: absolute;
+   top: 85.5%;
+   right: 40%;
+   border-radius: 25px;
+   width: 50px;
+   height: 50px;
+   min-width: 50px;
+   background-color: rgb(36, 21, 11);
+}
+
+.btn-r {
+   width: 49%;
    border-radius: 0px 25px 25px 0px;
    border-left: 1px solid rgb(255, 255, 255);
 }
@@ -87,10 +100,26 @@ input {
 .btn-light:hover {
    color: #1d2124b2;
    background-color: white;
-   border: 2px solid rgb(255, 255, 255);
 }
+
 .card-box {
-   min-width: 300px;
+   min-width: 250px;
+}
+
+.card-btns {
+   display: inline;
+}
+
+/* img {
+   size: inherit;
+} */
+
+.image-container {
+   width: 249px;
+   height: 249px;
+   min-height: 249px;
+   min-width: 249px;
+   object-fit: cover;
 }
 
 @media screen and (max-width: 650px) {

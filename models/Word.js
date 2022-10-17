@@ -14,6 +14,10 @@ Word.init(
         word_name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     },
     {
