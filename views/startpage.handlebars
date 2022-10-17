@@ -10,10 +10,10 @@
 <div class="h-100 m-5 login-glass">
     <div class="login-card ">
         {{#each language}}
-        <div class="m-3 position-relative">
-            <div class="position-static">
-                <a class="btn btn-light" id="foreign_language_{{this.id}}" class="stretched-link" href="/learningcard/{{id}}" for="language-{{this.id}}"
-                    style="color: white;">{{translate_name this.name}}</a>
+        <div class="form-group position-relative">
+            <div class="form-group position-static">
+                <a id="foreign_language" class="stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
+                    style="color: white;">{{this.name}}</a>
                 <img src="" alt="">
 
                 <label for="language-{{this.id}}">native form of {{this.name}}</label>

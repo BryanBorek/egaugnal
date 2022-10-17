@@ -13,26 +13,28 @@
     </div>
 </aside>
 
-<div class="h-100 mt-5">
-    <p id="targetLanguage" style="display: none;">{{displayLanguage.name}}</p>
-    <br>
-    <p style="color: white;">{{dispalyWord.word_name}}</p>
-    <br>
-    <p style="color: white;">image goes here</p>
-    <br>
-    <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
-    <button onclick="document.getElementById('play-sound').play()">Sound 🔊</button>
-    <br>
+<div class="h-100 m-2 card-box login-glass">
+    <div class="d-flex my-2 mx-3 align-items-center justify-content-between">
+    <h2 class="mt-2 mb-2" style="color: white;">{{transformWord.text}}</h2>
     <button id="flipBtn" class="btn btn-light mt-2 mb-2">flip</button>
-    <br>
-    <textarea name="uesr_guess" id="guess" cols="30" rows="1" placeholder="Your guess"></textarea>
-    <br>
-    <button id="guessBtn" class="btn btn-light mt-2 mb-2">Submit guess</button>
-    <br>
-    <a href="/learningcard/{{dispalyWord.id}}">next card</a>
-    <button class="btn btn-light mt-2 mb-2">Next Card</button>
+    </div>
+    <div>
+        <img src="{{displayWord.img}}" class="image-container" alt="{{displayWord.word_name}}">
+    </div>
+    <div class="m-3">
+        <input class="form-input col-12 mx-0" name="uesr_guess" id="guess" cols="30" rows="1"
+            placeholder="Your guess"></input>
+        <section class="card-btns">
+            <div class="mt-3">
+                <button id="guessBtn" class="btn btn-light btn-l">guess</button>
+                <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
+                {{#if nextBtnURL}}
+                <a class="btn btn-light mt-2 mb-2 btn-r" href="{{nextBtnURL}}">next</a>
+                {{/if}}
+                <button class="col-1 btn btn-light btn-c" onclick="document.getElementById('play-sound').play()">🔊</button>
+            </div>
+        </section>
+    </div>
 </div>
 
-
-<script src="/js/firstcard.js"></script>
 <script src="/js/logout.js"></script>
