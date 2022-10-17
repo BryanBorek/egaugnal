@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS language_db;
-
-CREATE DATABASE language_db;
