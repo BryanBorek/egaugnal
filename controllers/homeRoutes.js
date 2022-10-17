@@ -24,9 +24,9 @@ router.get("/login", (req, res) => {
 
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
-    { raw: true,}
+    { raw: true, }
   )
-  
+
   res.render("startpage", {
     language,
   });
@@ -37,33 +37,25 @@ router.get("/languageform", withAuth, async(req, res) => {
   res.render("languageform");
 })
 
-router.get("/learningpage/:id", async (req, res) => {
- 
-  const displayLanguage = await Language.findByPk(req.params.id, {
+router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (req, res) => {
+  const languageId = parseInt(req.params.languageId);
+  const wordIndex = parseInt(req.params.wordIndex);
+
+  const selectedLanguage = await Language.findByPk(languageId, {
     raw: true,
   });
 
-  const dispalyWord = await Word.findOne({
+  //find all words in database and count them
+  const wordResponse = await Word.findAndCountAll({
     raw: true,
-    where: {
-      id: 1,
-    }
+    offset: wordIndex,
+    limit: 1,
   })
 
-  selectedLanguage = displayLanguage;
+  const displayWord = wordResponse.rows[0]
 
-  //Transforms the english word to the desired language
-  const transformWord = await translate(dispalyWord.word_name, {to: displayLanguage.name});
-  const foreignWord = transformWord.text;
-  //Use the desired language to pronounce the converted word
-  const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
-    lang: displayLanguage.short, 
-    slow: false, 
-    host: 'https://translate.google.com', 
-    timeout: 10000,
-})
-  //Create the audio
-  const audioSource = `data:audio/wav;base64,${audioBase64}`;
+  //Do not show Next button if there are no more words
+  let nextBtnURL;
 
   res.render("learningpage", {
     displayLanguage,
@@ -85,28 +77,34 @@ router.get("/learningcard/:id", async (req, res) => {
   
   })
 
-  const wordData = await Word.findAll({raw: true});
+  // Check if there are still words in the database
+  if (nextIndex <= maximumIndex) {
+    nextBtnURL = `/learningpage/languageId/${languageId}/wordIndex/${wordIndex + 1}`;
 
-    //Transforms the english word to the desired language
-    const transformWord = await translate(dispalyWord.word_name, {to: selectedLanguage.name});
-    const foreignWord = transformWord.text;
-    //Use the desired language to pronounce the converted word
-    const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
-      lang: selectedLanguage.short, 
-      slow: false, 
-      host: 'https://translate.google.com', 
-      timeout: 10000,
+  }
+  //Transforms the english word to the desired language
+  const transformWord = await translate(displayWord.word_name, { to: selectedLanguage.short });
+  const foreignWord = transformWord.text;
+  //Use the desired language to pronounce the converted word
+  const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
+    lang: selectedLanguage.short,
+    slow: false,
+    host: 'https://translate.google.com',
+    timeout: 10000,
   })
-    //Create the audio
-    const audioSource = `data:audio/wav;base64,${audioBase64}`;
-  
-  res.render("learningcard", {
-    dispalyWord,
+  //Create the audio
+  const audioSource = `data:audio/wav;base64,${audioBase64}`;
+
+  res.render("learningpage", {
+    displayWord,
+    foreignWord,
+    audioSource,
     selectedLanguage,
-    audioSource
-    
+    languageId,
+    transformWord,
+    nextBtnURL,
   })
-});
+})
 
 router.get("/logout", async (req, res) => {
   res.render("homepage")
