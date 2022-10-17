@@ -57,31 +57,14 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
   //Do not show Next button if there are no more words
   let nextBtnURL;
 
-  res.render("learningpage", {
-    displayLanguage,
-    dispalyWord,
-    audioSource,
-    foreignWord
-    
-  })
-});
+  const nextIndex = wordIndex + 1;
+  const maximumIndex = wordResponse.count - 1;
 
-router.get("/logout", async (req, res) => {
-  res.render("homepage")
-});
-
-router.get("/learningcard/:id", async (req, res) => {
-
-  const dispalyWord = await Word.findByPk(req.params.id, {
-    raw: true,
+    // Check if there are still words in the database
+    if (nextIndex <= maximumIndex) {
+      nextBtnURL = `/learningpage/languageId/${languageId}/wordIndex/${wordIndex + 1}`;
   
-  })
-
-  // Check if there are still words in the database
-  if (nextIndex <= maximumIndex) {
-    nextBtnURL = `/learningpage/languageId/${languageId}/wordIndex/${wordIndex + 1}`;
-
-  }
+    }
   //Transforms the english word to the desired language
   const transformWord = await translate(displayWord.word_name, { to: selectedLanguage.short });
   const foreignWord = transformWord.text;
@@ -104,10 +87,11 @@ router.get("/learningcard/:id", async (req, res) => {
     transformWord,
     nextBtnURL,
   })
-})
+});
 
 router.get("/logout", async (req, res) => {
   res.render("homepage")
 });
+
 
 module.exports = router;
