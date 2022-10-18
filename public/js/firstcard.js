@@ -1,27 +1,27 @@
-async function firstCardHandler(e) {
+async function flipCardHandler(e) {
     e.preventDefault();
-    const language = document.querySelector("#targetLanguage").textContent;
- 
-    localStorage.setItem("target", language);
-    
-    const id = window.location.toString().split("/")[
-        window.location.toString().split("/").length - 1
-    ];
-
-    const response = await fetch(`/learningpage/2`, {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-          },
-    });
-    // console.log(langID)
-    if (response.ok) {
-        document.location.replace("/learningpage/2");
-    }
+    console.log("click")
+    let wordToSave = document.querySelector("#wordToLearn").textContent;
+    let wordToLearn = document.querySelector("#wordToLearn");
+    const englishWord = document.querySelector("#englishWord").textContent;
+    localStorage.setItem("foreignWord", wordToSave)
+    wordToLearn.textContent = englishWord;
 };
 
-const nextBtn = document.querySelector("#nextBtn");
+const flipBtn = document.querySelector("#flipBtn");
 
-nextBtn.addEventListener("click", firstCardHandler)
+flipBtn.addEventListener("click", flipCardHandler);
 
+//back card function
+async function backCardHandler(e) {
+    e.preventDefault();
+    console.log("click")
+    const wordToLearn = localStorage.getItem("foreignWord");
+    let englishWord = document.querySelector("#wordToLearn");
+    console.log(wordToLearn)
+    englishWord.textContent = wordToLearn;
+};
 
+const backBtn = document.querySelector("#backBtn");
+
+backBtn.addEventListener("click", backCardHandler)
