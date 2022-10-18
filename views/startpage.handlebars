@@ -10,13 +10,14 @@
 <div class="h-100 m-5 login-glass">
     <div class="login-card ">
         {{#each language}}
-        <div class="form-group position-relative">
-            <div class="form-group position-static">
-                <a id="foreign_language" class="stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
-                    style="color: white;">{{this.name}}</a>
+        <div class="position-relative m-3">
+            <div class="position-static">
+                <a id="foreign_language" class="btn btn-light stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
+                    >{{this.name}}</a>
+
                 <img src="" alt="">
 
-                <label for="language-{{this.id}}">native form of {{this.name}}</label>
+                <h4 for="language-1">native form of {{this.name}}</h>
             </div>
         </div>
         {{/each}}
