@@ -1,55 +1,31 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Language, Word } = require("../models")
-const googleTTS = require('google-tts-api');
-const translate = require('@vitalets/google-translate-api');
+const googleTTS = require("google-tts-api");
+const translate = require("@vitalets/google-translate-api");
 
 router.get("/", async (req, res) => {
   res.render("homepage", {
-    loggedIn: req.session.loggedIn,
+    // loggedIn: req.session.loggedIn,
   })
 });
 
 router.get("/login", (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/");
+  if (req.session.loggedIn) {
+    res.redirect("/startpage");
     return;
   }
 
-  res.redirect("/startpage");
+  res.redirect("homepage");
 });
-
-router.get("/signup", (req, res) => {
-  req.session.loggedIn,
-
-  res.render('startpage', {
-    galleries,
-    loggedIn: req.session.loggedIn,
-  });
-})
 
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
-    { raw: true,} 
-    )
+    { raw: true, }
+  )
 
-    // const languages = language.rows[0];
-    
-    // language.forEach  (async (languages) => {
-    //   const translateLanguage = await translate(languages.name, { to: languages.short });
-    //   // languages.push(translateLanguage.text);
-      
-    //   const foreignLanguage =  translateLanguage.text;
-
-  //   for ( const text in language) {
-  //     const translateLanguage = translate(language.name, { to: language.short})
-  //   };
-    
   res.render("startpage", {
     language,
-    // foreignLanguage,s
-    
-  
   });
 });
 
@@ -89,7 +65,7 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
   const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
     lang: selectedLanguage.short,
     slow: false,
-    host: 'https://translate.google.com',
+    host: "https://translate.google.com",
     timeout: 10000,
   })
   //Create the audio

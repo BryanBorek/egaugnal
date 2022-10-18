@@ -13,7 +13,7 @@ const loginFormHandler = async (event) => {
     });
     console.log(response)
     if (response.ok) {
-      document.location.replace("/login");
+      document.location.replace("/startpage");
     } else {
       alert("Failed to log in.");
     }
@@ -39,7 +39,7 @@ const signupFormHandler = async (event) => {
     });
     console.log(response)
     if (response.ok) {
-      document.location.replace("/login");
+      document.location.replace("/startpage");
     } else {
       alert("Failed to sign up.");
     }
