@@ -15,9 +15,8 @@
                 <a id="foreign_language" class="stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
                     style="color: white;">{{this.name}}</a>
                 <img src="" alt="">
-                
-                <label for="language-1">native form of {{foreignLanguage}}</label>
-                
+
+                <label for="language-{{this.id}}">native form of {{this.name}}</label>
             </div>
         </div>
         {{/each}}

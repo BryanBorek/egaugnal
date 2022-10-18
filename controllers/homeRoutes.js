@@ -19,6 +19,15 @@ router.get("/login", (req, res) => {
   res.redirect("/startpage");
 });
 
+router.get("/signup", (req, res) => {
+  req.session.loggedIn,
+
+  res.render('startpage', {
+    galleries,
+    loggedIn: req.session.loggedIn,
+  });
+})
+
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
     { raw: true,} 
@@ -36,12 +45,12 @@ router.get("/startpage", withAuth, async (req, res) => {
   //     const translateLanguage = translate(language.name, { to: language.short})
   //   };
     
-  // res.render("startpage", {
-  //   language,
-  //   foreignLanguage,
+  res.render("startpage", {
+    language,
+    // foreignLanguage,s
     
   
-  // });
+  });
 });
 
 router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (req, res) => {
