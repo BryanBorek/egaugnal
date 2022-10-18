@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Language, Word } = require("../models")
-let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
 
@@ -20,16 +19,29 @@ router.get("/login", (req, res) => {
   res.redirect("/startpage");
 });
 
-
-
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
-    { raw: true, }
-  )
+    { raw: true,} 
+    )
 
-  res.render("startpage", {
-    language,
-  });
+    // const languages = language.rows[0];
+    
+    // language.forEach  (async (languages) => {
+    //   const translateLanguage = await translate(languages.name, { to: languages.short });
+    //   // languages.push(translateLanguage.text);
+      
+    //   const foreignLanguage =  translateLanguage.text;
+
+  //   for ( const text in language) {
+  //     const translateLanguage = translate(language.name, { to: language.short})
+  //   };
+    
+  // res.render("startpage", {
+  //   language,
+  //   foreignLanguage,
+    
+  
+  // });
 });
 
 router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (req, res) => {
@@ -39,6 +51,7 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
   const selectedLanguage = await Language.findByPk(languageId, {
     raw: true,
   });
+
 
   //find all words in database and count them
   const wordResponse = await Word.findAndCountAll({
