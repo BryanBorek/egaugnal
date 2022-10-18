@@ -1,42 +1,52 @@
 [
     {
         "name": "Spanish",
-        "short": "es"
+        "short": "es",
+        "native": "Española"
     },
     {
         "name": "Japanese",
-        "short": "ja"
+        "short": "ja",
+        "native": "日本"
     },
     {
         "name": "French",
-        "short": "fr"
+        "short": "fr",
+        "native": "Français"
     },
     {
         "name": "Chinese (Simplified)",
-        "short": "zh-CN"
+        "short": "zh-CN",
+        "native": "简体中文）"
     },
     {
         "name": "Russian",
-        "short": "ru"
+        "short": "ru",
+        "native": "Русский"
     },
     {
         "name": "Italian",
-        "short": "it"
+        "short": "it",
+        "native": "Italiana"
     },
     {
         "name": "Korean",
-        "short": "ko"
+        "short": "ko",
+        "native": "한국인"
     },
     {
         "name": "German",
-        "short": "de"
+        "short": "de",
+        "native": "Deutsch"
     },
     {
         "name": "Portuguese",
-        "short": "pt"
+        "short": "pt",
+        "native": "Português"
     },
     {
         "name": "Hungarian",
-        "short": "hu"
+        "short": "hu",
+        "native": "Magyar"
     }
 ]
