@@ -127,12 +127,13 @@ input {
    object-fit: cover;
 }
 
+/* Code for dropdown suggestion*/
 .autocomplete {
    /*the container must be positioned relative:*/
    position: relative;
    display: inline-block;
  }
- input {
+ /* input {
    border: 1px solid transparent;
    background-color: #f1f1f1;
    padding: 10px;
@@ -145,7 +146,7 @@ input {
  input[type=submit] {
    background-color: DodgerBlue;
    color: #fff;
- }
+ } */
  .autocomplete-items {
    position: absolute;
    border: 1px solid #d4d4d4;
@@ -172,6 +173,20 @@ input {
    background-color: DodgerBlue !important;
    color: #ffffff;
  }
+ .ui-autocomplete {
+   max-height: 100px;
+   overflow-y: auto;
+   /* prevent horizontal scrollbar */
+   overflow-x: hidden;
+ }
+ /* IE 6 doesn't support max-height
+  * we use height instead, but this forces the menu to always be this tall
+  */
+ * html .ui-autocomplete {
+   height: 100px;
+ }
+
+ /*End of autocomplete */
 
 @media screen and (max-width: 650px) {
    body {
