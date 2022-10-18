@@ -1,18 +1,18 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Language, Word } = require("../models")
-
+let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
 
 router.get("/", async (req, res) => {
   res.render("homepage", {
-    // loggedIn: req.session.loggedIn,
+    loggedIn: req.session.loggedIn,
   })
 });
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/startpage");
+  if (!req.session.loggedIn) {
+    res.redirect("/");
     return;
   }
   res.redirect("/startpage");
@@ -53,7 +53,7 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
   const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
     lang: selectedLanguage.short,
     slow: false,
-    host: "https://translate.google.com",
+    host: 'https://translate.google.com',
     timeout: 10000,
   })
   //Create the audio
