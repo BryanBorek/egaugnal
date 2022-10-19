@@ -15,8 +15,10 @@ router.get("/login", (req, res) => {
     res.redirect("/");
     return;
   }
-  res.redirect("/startpage");
+
+  res.render("startpage");
 });
+
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
     { raw: true, }

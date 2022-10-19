@@ -1,24 +1,26 @@
-<aside class="login-glass">
+<aside class="login-glass m-2">
     <h3 class="mt-4">Egaugnal</h3>
-    <div>
+    <div class="m-2">
         <a href="/startpage">
-            <button class="btn btn-light mt-2 mb-2">Home</button>
+            <button class="btn btn-light m-1">Home</button>
         </a>
     </div>
-    <div class="col">
-        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+    <div class="m-2">
+        <button id="logout" class="btn btn-light m-1" type="submit">Logout</button>
     </div>
-    <div>
-        <button class="btn btn-light mt-2 mb-2" type="submit">High Scores</button>
+    <div class="m-2">
+        <button class="btn btn-light m-1" type="submit">High Scores</button>
     </div>
 </aside>
 
 <div class="h-100 m-2 card-box login-glass">
     <div class="d-flex my-2 mx-3 align-items-center justify-content-between">
         <p id="englishWord" style="display: none;">{{displayWord.word_name}}</p>
-        <h2 id="wordToLearn" class="mt-2 mb-2" style="color: white;">{{transformWord.text}}</h2>
-        <button id="backBtn" class="btn btn-light mt-2 mb-2">back</button>
-        <button id="flipBtn" class="btn btn-light mt-2 mb-2">flip</button>
+        <h2 id="wordToLearn" class="mt-2 mb-2 word-on-card" style="color: white;">{{transformWord.text}}</h2>
+        <div>
+        <button id="backBtn" class="btn btn-light mt-2 mb-2 btn-l">back</button>
+        <button id="flipBtn" class="btn btn-light mt-2 mb-2 btn-r">flip</button>
+        </div>
     </div>
     <div>
         <img src="{{displayWord.img}}" class="image-container" alt="{{displayWord.word_name}}">

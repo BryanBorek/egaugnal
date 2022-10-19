@@ -1,23 +1,26 @@
-<aside class="login-glass">
-    <h3 class="mt-4">Egaugnal</h3>
-    <div class="col">
-        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+<aside class="login-glass m-2">
+    <h3 class="m-3">Egaugnal</h3>
+    <div class="m-2">
+        <a href="/startpage">
+            <button class="btn btn-light m-1">Home</button>
+        </a>
     </div>
-    <div>
-        <button class="bbtn btn-light mt-2 mb-2" type="submit">High Scores</button>
+    <div class="m-2">
+        <button id="logout" class="btn btn-light m-1" type="submit">Logout</button>
+    </div>
+    <div class="m-2">
+        <button class="btn btn-light m-1" type="submit">High Scores</button>
     </div>
 </aside>
-<div class="h-100 m-5 login-glass">
-    <div class="login-card ">
+
+<div class="h-100 m-2 login-glass">
+    <div class="login-card my-3">
         {{#each language}}
-        <div class="position-relative m-3">
-            <div class="position-static">
-                <a id="foreign_language" class="btn btn-light stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
-                    >{{this.name}}</a>
-
-                <img src="" alt="">
-
-                <h4 for="language-1">native form of {{this.name}}</h>
+        <div class="position-relative m-2">
+            <div class="position-static row m-2">
+                <a id="foreign_language" class="btn btn-light stretched-link my-1" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
+                    >{{this.native}}</a>
+                <p class="native-form-of m-2" for="language-1"><em>native form of</em> <strong>{{this.name}}</strong></p>
             </div>
         </div>
         {{/each}}
