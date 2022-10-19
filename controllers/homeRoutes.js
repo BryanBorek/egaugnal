@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const hasAudio = require("../utils/audioSupport");
-const { User, Language, Word } = require("../models")
-let selectedLanguage = {};
+const { User, Language, Word, Scores } = require("../models")
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
 
@@ -11,13 +10,15 @@ router.get("/", async (req, res) => {
     loggedIn: req.session.loggedIn,
   })
 });
+
 router.get("/login", (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/startpage");
     return;
   }
   res.redirect("/startpage");
 });
+
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
     { raw: true, }
@@ -84,6 +85,30 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
     nextBtnURL,
   })
 });
+
+// Submit lesson score to the scoreboard
+router.get("/scorepage", async (req, res) => {
+  const userScores = await User.findByPk(req.session.userID,
+    { 
+      attributes: {
+        exclude: [
+          "password",
+        ]
+      },
+      include: [{
+        model: Scores
+      }]
+    }
+  );
+  const score = userScores.get({ plain: true })
+  console.log(userScores)
+  res.render("scorepage", {
+    
+    score,
+    display: score.scores
+  })
+})
+
 router.get("/logout", async (req, res) => {
   res.render("homepage")
 });

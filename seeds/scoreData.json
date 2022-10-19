@@ -1,0 +1,18 @@
+[
+    {
+        "lesson_score": 2,
+        "user_id": 1
+    },
+    {
+        "lesson_score": 3,
+        "user_id": 1
+    },
+    {
+        "lesson_score": 4,
+        "user_id": 2
+    },
+    {
+        "lesson_score": 5,
+        "user_id": 2
+    }
+]
