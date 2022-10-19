@@ -1,67 +1,33 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Autocomplete - Scrollable results</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <style>
-  .ui-autocomplete {
-    max-height: 100px;
-    overflow-y: auto;
-    /* prevent horizontal scrollbar */
-    overflow-x: hidden;
-  }
-  /* IE 6 doesn't support max-height
-   * we use height instead, but this forces the menu to always be this tall
-   */
-  * html .ui-autocomplete {
-    height: 100px;
-  }
-  </style>
-  {{!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> --}}
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-  <script>
-  $( function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-  </script>
-</head>
-<body>
- 
-<div class="ui-widget">
-  <label for="tags">Tags: </label>
-  <input id="tags">
+<aside class="login-glass">
+    <h3 class="mt-4">Egaugnal</h3>
+        <div>
+        <a href="/startpage">
+            <button class="btn btn-light mt-2 mb-2">Home</button>
+        </a>
+    </div>
+    <div class="col">
+        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+    </div>
+    <div>
+        <button class="bbtn btn-light mt-2 mb-2" type="submit">High Scores</button>
+    </div>
+</aside>
+<div class="d-flex ml-3 justify-content-center align-items-center h-100 login-glass">
+    <div class="d-flex container justify-content-center align-items-center">
+        <form class="form language-form mt-3">
+            <h2 class="slogan mx-2">Add Language:</h2>
+            <div class="d-flex form-group justify-content-center user-input-container">
+              <label for="tags"></label>
+              <input id="tags" class="form-input w-100 mx-2" type="text" name="language" placeholder="search">
+            </div>
+            <div class="d-flex form-group justify-content-center mx-2">
+                <button class="bbtn btn-light mt-2 mb-2" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
- 
- 
-</body>
-</html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/addlanguage.js"></script>

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
+const hasAudio = require("../utils/audioSupport");
 const { User, Language, Word } = require("../models")
 let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
@@ -55,15 +56,24 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
   //Transforms the english word to the desired language
   const transformWord = await translate(displayWord.word_name, { to: selectedLanguage.short });
   const foreignWord = transformWord.text;
-  //Use the desired language to pronounce the converted word
-  const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
-    lang: selectedLanguage.short,
-    slow: false,
-    host: 'https://translate.google.com',
-    timeout: 10000,
-  })
-  //Create the audio
-  const audioSource = `data:audio/wav;base64,${audioBase64}`;
+
+  //If the selected language has audio, create an audio for it
+  let audioSource;
+  if(hasAudio(selectedLanguage.name)){
+    //Use the desired language to pronounce the converted word
+    const audioBase64 = await googleTTS.getAudioBase64(foreignWord, {
+      lang: selectedLanguage.short,
+      slow: false,
+      host: 'https://translate.google.com',
+      timeout: 10000,
+    })
+    //Create the audio
+    audioSource = `data:audio/wav;base64,${audioBase64}`;
+  }else {
+    //If the language does not have audio support, leave it as an empty string
+    audioSource = "";
+  }
+
   res.render("learningpage", {
     displayWord,
     foreignWord,

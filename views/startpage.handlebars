@@ -6,9 +6,6 @@
     <div>
         <button class="bbtn btn-light mt-2 mb-2" type="submit">High Scores</button>
     </div>
-    {{!-- <div>
-        <button id="addLanguage" class="bbtn btn-light mt-2 mb-2" type="submit">Add Language</button>
-    </div> --}}
     <div>
         <a href="/languageform">
             <button class="btn btn-light mt-2 mb-2">Add language</button>
@@ -21,7 +18,7 @@
         <div class="position-relative m-3">
             <div class="position-static">
                 <a id="foreign_language" class="btn btn-light stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
-                    >{{this.name}}</a>
+                    >{{this.native}}</a>
 
                 <img src="" alt="">
 
@@ -33,5 +30,3 @@
 </div>
 
 <script src="/js/logout.js"></script>
-
-<script src="/js/addlanguage.js"></script>

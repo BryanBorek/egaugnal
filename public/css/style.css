@@ -132,66 +132,33 @@ input:-webkit-autofill:focus {
    object-fit: cover;
 }
 
-/* Code for dropdown suggestion*/
-.autocomplete {
-   /*the container must be positioned relative:*/
-   position: relative;
-   display: inline-block;
- }
- /* input {
-   border: 1px solid transparent;
-   background-color: #f1f1f1;
-   padding: 10px;
-   font-size: 16px;
- }
- input[type=text] {
-   background-color: #f1f1f1;
-   width: 100%;
- }
- input[type=submit] {
-   background-color: DodgerBlue;
-   color: #fff;
- } */
- .autocomplete-items {
-   position: absolute;
-   border: 1px solid #d4d4d4;
-   border-bottom: none;
-   border-top: none;
-   z-index: 99;
-   /*position the autocomplete items to be the same width as the container:*/
-   top: 100%;
-   left: 0;
-   right: 0;
- }
- .autocomplete-items div {
-   padding: 10px;
-   cursor: pointer;
-   background-color: #fff;
-   border-bottom: 1px solid #d4d4d4;
- }
- .autocomplete-items div:hover {
-   /*when hovering an item:*/
-   background-color: #e9e9e9;
- }
- .autocomplete-active {
-   /*when navigating through the items using the arrow keys:*/
-   background-color: DodgerBlue !important;
-   color: #ffffff;
- }
- .ui-autocomplete {
+
+/* customization for tag input box */
+#tags{
+   border-radius: 0px;
+}
+
+/* Customization for autocomplete drop down */
+.ui-autocomplete {
+   position: fixed;
+   background-color: white;
+   /*border-radius: 25px; */
    max-height: 100px;
    overflow-y: auto;
    /* prevent horizontal scrollbar */
    overflow-x: hidden;
+   border: 1px solid black;
+   list-style-type: none;
+   width: 100px;
  }
- /* IE 6 doesn't support max-height
-  * we use height instead, but this forces the menu to always be this tall
-  */
- * html .ui-autocomplete {
+
+* html .ui-autocomplete {
    height: 100px;
  }
 
- /*End of autocomplete */
+ .ui-helper-hidden-accessible {
+   display: none;
+ }
 
 @media screen and (max-width: 650px) {
    body {
