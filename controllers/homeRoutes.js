@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User, Language, Word } = require("../models")
+const { User, Language, Word, Scores } = require("../models")
 let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
@@ -10,13 +10,15 @@ router.get("/", async (req, res) => {
     loggedIn: req.session.loggedIn,
   })
 });
+
 router.get("/login", (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/startpage");
     return;
   }
   res.redirect("/startpage");
 });
+
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
     { raw: true, }
@@ -25,6 +27,7 @@ router.get("/startpage", withAuth, async (req, res) => {
     language,
   });
 });
+
 router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (req, res) => {
   const languageId = parseInt(req.params.languageId);
   const wordIndex = parseInt(req.params.wordIndex);
@@ -67,7 +70,28 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
     transformWord,
     nextBtnURL,
   })
+});
+
+router.get("/scorepage", async (req, res) => {
+  const userScores = await User.findByPk(req.session.userID, 
+    { 
+      attributes: {
+        exclude: [
+            "password",
+        ]
+    },
+    include: [{
+      model: Scores
+    }]
+    }
+  );
+  const score = userScores.get({ plain:true })
+  res.render("scorepage", {
+  score: score,
+  display: score.scores
 })
+})
+
 router.get("/logout", async (req, res) => {
   res.render("homepage")
 });

@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { User, Language, Word } = require("../../models");
+const { User, Language, Word, Scores } = require("../../models");
 
 // Log in existing user
-router.post("/login", withAuth, async (req, res) => {
+router.post("/login", async (req, res) => {
     try {
         const userData = await User.findOne({
             where: {
@@ -57,6 +57,20 @@ router.post("/signup", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+//Submit to scoreboard
+router.post("/scorepage", async (req, res) => {
+    try {
+        const userScore = await Scores.create({
+            lesson_score: req.body.lesson_score,
+            user_id: req.session.userID,
+        });
+        res.status(200).json(userScore)
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
 
 // Logout
 router.post("/logout", (req, res) => {
