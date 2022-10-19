@@ -135,6 +135,34 @@ input:-webkit-autofill:focus {
    object-fit: cover;
 }
 
+
+/* customization for tag input box */
+#tags{
+   border-radius: 0px;
+}
+
+/* Customization for autocomplete drop down */
+.ui-autocomplete {
+   position: fixed;
+   background-color: white;
+   /*border-radius: 25px; */
+   max-height: 100px;
+   overflow-y: auto;
+   /* prevent horizontal scrollbar */
+   overflow-x: hidden;
+   border: 1px solid black;
+   list-style-type: none;
+   width: 100px;
+ }
+
+* html .ui-autocomplete {
+   height: 100px;
+ }
+
+ .ui-helper-hidden-accessible {
+   display: none;
+ }
+
 @media screen and (max-width: 650px) {
    body {
       background-size: 100vw, 66vh;

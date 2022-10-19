@@ -34,14 +34,20 @@
                 <audio autobuffer="autobuffer" id="play-sound" src={{audioSource}}></audio>
                 {{#if nextBtnURL}}
                 <a class="btn btn-light mt-2 mb-2 btn-r" href="{{nextBtnURL}}">next</a>
+                {{else}}
+                <a href="/scorepage">
+                    <button id="finishBtn" class="btn btn-light mt-2 mb-2 btn-r">finish</button>
+                    ></a>
                 {{/if}}
                 <button class="col-1 btn btn-light btn-c"
                     onclick="document.getElementById('play-sound').play()">🔊</button>
+
             </div>
         </section>
     </div>
 </div>
 
-<script src="/js/firstcard.js"></script>
+<script src="/js/submitguess.js"></script>
+<script src="/js/flipcard.js"></script>
 
 <script src="/js/logout.js"></script>
