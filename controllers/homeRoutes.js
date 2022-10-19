@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Language, Word, Scores } = require("../models")
-let selectedLanguage = {};
 const googleTTS = require('google-tts-api');
 const translate = require('@vitalets/google-translate-api');
 
@@ -73,23 +72,25 @@ router.get("/learningpage/languageId/:languageId/wordIndex/:wordIndex", async (r
 });
 
 router.get("/scorepage", async (req, res) => {
-  const userScores = await User.findByPk(req.session.userID, 
+  const userScores = await User.findByPk(req.session.userID,
     { 
       attributes: {
         exclude: [
-            "password",
+          "password",
         ]
-    },
-    include: [{
-      model: Scores
-    }]
+      },
+      include: [{
+        model: Scores
+      }]
     }
   );
-  const score = userScores.get({ plain:true })
+  const score = userScores.get({ plain: true })
+  console.log(userScores)
   res.render("scorepage", {
-  score: score,
-  display: score.scores
-})
+    
+    score,
+    display: score.scores
+  })
 })
 
 router.get("/logout", async (req, res) => {
