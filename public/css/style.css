@@ -110,6 +110,7 @@ input:-webkit-autofill:focus {
 
 .card-box {
    min-width: 250px;
+   max-width: min-content;
 }
 
 .card-btns {
