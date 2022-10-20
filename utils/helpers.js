@@ -20,7 +20,7 @@ module.exports = {
         return translation.text;
     },
     format_date: (date) => {
-        return `${monthNames[mon.getMonth()]}/${new Date(date).getDate()}/${new Date(date).getFullYear()} at ${new Date(date).getHours()}:${new Date(date).getMinutes()}`;
+        return `${monthNames[mon.getMonth()]}/${new Date(date).getDate()}/${new Date(date).getFullYear()} at ${new Date(date).getHours(date)}:${new Date(date).getMinutes(date)}`;
     },
 
 };
