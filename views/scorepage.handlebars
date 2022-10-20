@@ -1,43 +1,37 @@
-<aside class="login-glass">
-    <h3 class="mt-4">Egaugnal</h3>
-    <div>
+<aside class="login-glass m-2">
+    <h3 class="m-3">Egaugnal</h3>
+    <div class="m-2">
         <a href="/startpage">
-            <button class="btn btn-light mt-2 mb-2">Home</button>
+            <button class="btn btn-light m-1">Home</button>
         </a>
     </div>
-    <div class="col">
-        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+    <div class="m-2">
+        <button id="logout" class="btn btn-light m-1" type="submit">Logout</button>
     </div>
-
 </aside>
-<div>
-    <p class="h-100 m-5 login-glass">{{score.name}}</p>
-</div>
-<div>
-    <p id="userScore" class="h-100 m-5 login-glass">You scored x</p>
-</div>
-<div>
-    <p class="h-100 m-5 login-glass">Your scoreboard</p>
-</div>
-<div>
-
-<div class="h-100 m-2 card-box login-glass">
-    <div class="d-flex my-2 mx-3 align-items-center justify-content-between">
+<div class="h-100 m-2 login-glass">
+    <div>
+        <h3 class="h-100 m-4">{{score.name}}</h3>
+    </div>
+    <div>
+        <h2 class="h-100 m-2" id="userScore">You scored x</h2>
+    </div>
+    <div>
+        <h2 class="h-100 m-2">Your scoreboard</h2>
+    </div>
+    <div>
         {{#each display}}
-        <div class="m-3">
-            <div>
-                <p style="color: white;"> Your score on {{format_date this.createdAt}} was {{this.lesson_score}}</p>
-            </div>
+        <div>
+        <h2 class="h-100 m-2" style="color: white;"> Your score on {{format_date this.createdAt}} was {{this.lesson_score}}</h2>
         </div>
         {{/each}}
+    <div class="d-flex col align-items-center justify-content-around m-2">
+        <input class="mt-2 mb-2" name="newScore" id="newScore" cols="30" rows="1"
+            placeholder="enter latest score here"></input>
+        <button id="submitBtn" class="btn btn-light mt-2 mb-2" type="submit">Submit</button>
     </div>
-</div>
-</div>
-<div></div>
-<div class="col">
-    <textarea class="mt-2 mb-2" name="newScore" id="newScore" cols="30" rows="1" placeholder="enter latest score here"></textarea>
-    <button id="submitBtn" class="btn btn-light mt-2 mb-2" type="submit">Submit</button>
-</div>
+
 
 <script src="/js/score.js"></script>
+
 <script src="/js/logout.js"></script>

@@ -1,30 +1,31 @@
-<aside class="login-glass">
-    <h3 class="mt-4">Egaugnal</h3>
-    <div class="col">
-        <button id="logout" class="btn btn-light mt-2 mb-2" type="submit">Logout</button>
+<aside class="login-glass m-2">
+    <h3 class="m-3">Egaugnal</h3>
+    <div class="m-2">
+        <button id="logout" class="btn btn-light m-1" type="submit">Logout</button>
     </div>
-    <div>
+    <div class="m-2">
         <a href="/scorepage">
-        <button class="bbtn btn-light mt-2 mb-2">High Scores</button>
+        <button class="btn btn-light m-1">High Scores</button>
         </a>
     </div>
-    <div>
+    <div class="m-2">
         <a href="/languageform">
-            <button class="btn btn-light mt-2 mb-2">Add language</button>
+            <button class="btn btn-light m-1">Add language</button>
         </a>
     </div>
 </aside>
-<div class="h-100 m-5 login-glass">
+
+<div class="h-100 m-2 login-glass">
     <div class="login-card ">
         {{#each language}}
         <div class="position-relative m-3">
-            <div class="position-static">
+            <div class="position-static d-flex">
                 <a id="foreign_language" class="btn btn-light stretched-link" href="/learningpage/languageId/{{id}}/wordIndex/0" for="language-1"
                     >{{this.native}}</a>
 
                 <img src="" alt="">
 
-                <h4 for="language-1">native form of {{this.name}}</h>
+                <p class="native-form-of m-2" for="language-1">native form of {{this.name}}</p>
             </div>
         </div>
         {{/each}}

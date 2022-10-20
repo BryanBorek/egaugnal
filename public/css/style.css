@@ -53,7 +53,7 @@ body {
    backdrop-filter: blur(6px);
    -webkit-backdrop-filter: blur(6px);
    border: 2px solid rgb(255, 255, 255);
-   max-width: fit-content;
+   max-width: none;
 }
 
 input {
@@ -134,7 +134,6 @@ input:-webkit-autofill:focus {
    min-width: 249px;
    object-fit: cover;
 }
-
 
 /* customization for tag input box */
 #tags{
