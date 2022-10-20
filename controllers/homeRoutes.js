@@ -102,7 +102,7 @@ router.get("/scorepage", async (req, res) => {
     }
   );
   const score = userScores.get({ plain: true })
-  console.log(userScores)
+  
   res.render("scorepage", {
     
     score,
