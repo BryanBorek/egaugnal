@@ -12,11 +12,10 @@ router.get("/", async (req, res) => {
 });
 router.get("/login", (req, res) => {
   if (!req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/startpage");
     return;
   }
-
-  res.render("startpage");
+  res.redirect("/startpage");
 });
 
 router.get("/startpage", withAuth, async (req, res) => {
