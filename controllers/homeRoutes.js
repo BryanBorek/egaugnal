@@ -19,6 +19,7 @@ router.get("/login", (req, res) => {
   res.redirect("/startpage");
 });
 
+//Startpage route
 router.get("/startpage", withAuth, async (req, res) => {
   const language = await Language.findAll(
     { raw: true, }
