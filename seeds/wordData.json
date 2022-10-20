@@ -33,14 +33,14 @@
     },
     {
         "word_name":"Fox",
-        "img":"/images/pexels-rachel-vine-1427079.jpg"
+        "img":"/images/fox.jpg"
     },
     {
         "word_name": "Wolf",
-        "img":"/images/pexels-rachel-vine-1427079.jpg"
+        "img":"/images/wolf.jpg"
     },
     {
         "word_name": "Bear",
-        "img":"/images/pexels-rachel-vine-1427079.jpg"
+        "img":"/images/bear.jpg"
     }
 ]

@@ -10,6 +10,7 @@ As people likes to travel and engage in conversation with localas this app can h
 
 ![alt text](./assets/homescreen.png)
 
+[Heroku Link](https://egaugnal.herokuapp.com/)
 ## Credit
 Styling features were enhanced by https://css.glass
 
